@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>حملات رمضان الإعلانية</title>
+  <meta name="description" content="حملات محلية + محتوى إعلاني جاهز + إدارة وتحسين أسبوعي. تواصل واتساب وابدأ الآن." />
+
+  <style>
+    :root{
+      --bg:#0A0A0A;
+      --bg2:#0D1210;
+      --card:#111714;
+      --border:#1a2520;
+      --green:#4ADE80;
+      --wa:#25D366;
+      --waHover:#20BD5A;
+      --muted:#9AA3AD;
+      --text:#FFFFFF;
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans Arabic", "Tahoma", sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit}
+    .container{max-width:1120px;margin:0 auto;padding:0 24px}
+    section{padding:96px 0}
+    .sectionAlt{background: linear-gradient(to bottom, var(--bg), var(--bg2))}
+    .sectionTitle{text-align:center;margin-bottom:56px}
+    .sectionTitle h2{margin:0 0 14px;font-size:clamp(26px,3vw,44px);font-weight:900;letter-spacing:-.02em}
+    .sectionTitle p{margin:0 auto;max-width:680px;color:var(--muted);line-height:1.8}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .col-3{grid-column:span 3}
+    .col-4{grid-column:span 4}
+    .col-6{grid-column:span 6}
+    @media (max-width:1024px){.col-3,.col-4{grid-column:span 6}}
+    @media (max-width:640px){section{padding:72px 0}.col-3,.col-4,.col-6{grid-column:span 12}}
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:26px;
+      transition:.15s ease;
+      box-shadow: none;
+    }
+    .card:hover{border-color: rgba(13,76,59,.55)}
+    .muted{color:var(--muted)}
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      background: rgba(13,76,59,.20);
+      border: 1px solid rgba(13,76,59,.40);
+      color: var(--green);
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:22px;
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      background: linear-gradient(to bottom, var(--bg2), var(--bg));
+      text-align:center;
+    }
+    .blob{
+      position:absolute; top:70px; right:70px;
+      width:320px; height:320px;
+      background: rgba(13,76,59,.22);
+      border-radius:999px;
+      filter: blur(110px);
+      pointer-events:none;
+    }
+    .h1{
+      font-size:clamp(34px,5vw,74px);
+      font-weight:1000;
+      line-height:1.08;
+      margin:0 0 18px;
+      letter-spacing:-.03em;
+    }
+    .h1 .green{color:var(--green)}
+    .subtitle{
+      margin:0 auto 34px;
+      max-width:720px;
+      font-size:clamp(16px,2.2vw,22px);
+      color: #9AA3AD;
+      line-height:1.8;
+    }
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      padding:16px 26px;
+      border-radius:999px;
+      background:var(--wa);
+      color:#fff;
+      font-size:18px;
+      font-weight:900;
+      text-decoration:none;
+      transition:.15s ease-in-out;
+      box-shadow: 0 12px 34px rgba(37,211,102,.18);
+      white-space:nowrap;
+    }
+    .cta:hover{background:var(--waHover); transform: translateY(-1px)}
+    .cta svg{width:22px;height:22px; fill:currentColor}
+
+    .miniStats{
+      margin-top:26px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .miniStats .pill{
+      padding:10px 14px;
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.06);
+      color:#D1D5DB;
+      font-size:13px;
+      font-weight:700;
+    }
+    .chev{
+      position:absolute;
+      bottom:18px;
+      left:50%;
+      transform:translateX(-50%);
+      color:#6B7280;
+      opacity:.9;
+      animation:bounce 1.4s infinite;
+      user-select:none;
+      cursor:pointer;
+    }
+    @keyframes bounce{
+      0%,100%{transform:translateX(-50%) translateY(0)}
+      50%{transform:translateX(-50%) translateY(8px)}
+    }
+
+    /* Services icons */
+    .iconBox{
+      width:56px;height:56px;
+      border-radius:18px;
+      background: rgba(13,76,59,.20);
+      display:flex;align-items:center;justify-content:center;
+      margin-bottom:18px;
+      transition:.15s ease;
+    }
+    .card:hover .iconBox{background: rgba(13,76,59,.30)}
+    .iconBox svg{width:26px;height:26px; stroke: var(--green)}
+    .card h3{margin:0 0 10px;font-size:18px}
+    .card p{margin:0;color:var(--muted);line-height:1.8}
+
+    /* How we work box */
+    .how{
+      margin-top:22px;
+      max-width:860px;
+      margin-inline:auto;
+      padding:22px;
+      border-radius:18px;
+      border:1px solid rgba(13,76,59,.30);
+      background: rgba(13,76,59,.10);
+    }
+    .how h4{margin:0 0 10px; color:var(--green); font-size:18px}
+    .how ul{margin:0; padding:0 18px; color:#D1D5DB; line-height:1.95}
+    .how li{margin:6px 0}
+    .how .muted{color:var(--muted)}
+
+    /* Results */
+    .resultsHeader{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:18px; flex-wrap:wrap;
+      margin:0 auto 22px; max-width:980px;
+    }
+    .resultsHeader .left{
+      max-width:640px;
+    }
+    .resultsHeader h2{
+      margin:0 0 10px;
+      font-size:clamp(26px,3vw,44px);
+      font-weight:1000;
+      letter-spacing:-.03em;
+    }
+    .resultsHeader p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.8;
+    }
+    .trustBadges{
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .trustBadges .badge{
+      padding:10px 12px;
+      border-radius:14px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.06);
+      color:#E5E7EB;
+      font-size:12px;
+      font-weight:800;
+    }
+    .resultCard{
+      position:relative;
+      overflow:hidden;
+    }
+    .resultCard:before{
+      content:"";
+      position:absolute; inset:auto -60px -60px auto;
+      width:180px; height:180px;
+      background: rgba(74,222,128,.10);
+      border-radius:999px;
+      filter: blur(25px);
+      transform: rotate(15deg);
+    }
+    .resultTitle{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+      margin-bottom:14px;
+    }
+    .resultTitle h3{margin:0;font-size:18px;font-weight:1000}
+    .label{
+      font-size:12px;
+      font-weight:900;
+      color:var(--green);
+      background: rgba(13,76,59,.22);
+      border: 1px solid rgba(13,76,59,.38);
+      padding:8px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+    .kpis{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    @media(max-width:640px){.kpis{grid-template-columns:1fr}}
+    .kpi{
+      padding:14px;
+      border-radius:14px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+    .kpi .name{color:var(--muted);font-size:12px;font-weight:800;margin-bottom:6px}
+    .kpi .val{font-size:18px;font-weight:1000}
+    .kpi .val.green{color:var(--green)}
+    .proof{
+      margin-top:14px;
+      padding:14px;
+      border-radius:14px;
+      border:1px dashed rgba(255,255,255,.14);
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.7;
+      background: rgba(255,255,255,.02);
+    }
+    .proof b{color:#E5E7EB}
+
+    /* Pricing */
+    .priceCard{position:relative; overflow:hidden}
+    .tag{
+      position:absolute; top:0; right:0;
+      background: var(--green);
+      color:#0A0A0A;
+      font-weight:1000;
+      font-size:13px;
+      padding:6px 14px;
+      border-bottom-left-radius:14px;
+    }
+    .price{display:flex;align-items:baseline;gap:10px;margin:8px 0 18px}
+    .price .num{font-size:44px;font-weight:1100;color:var(--green);letter-spacing:-.02em}
+    .price .unit{color:var(--muted)}
+    .features{margin:0; padding:0; list-style:none}
+    .features li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;color:#D1D5DB;line-height:1.6}
+    .tick{
+      width:20px;height:20px;flex:0 0 20px;margin-top:2px;border-radius:6px;
+      background: rgba(74,222,128,.14);
+      display:flex;align-items:center;justify-content:center;
+    }
+    .tick svg{width:14px;height:14px; stroke: var(--green)}
+    .btnOutline{
+      display:block; width:100%; text-align:center; padding:14px 16px;
+      border-radius:14px; border:1px solid rgba(13,76,59,1);
+      color:var(--green); text-decoration:none; font-weight:1000;
+      margin-top:18px; transition:.15s ease; background: transparent;
+    }
+    .btnOutline:hover{background: rgba(13,76,59,.20)}
+    .btnSolid{
+      display:block; width:100%; text-align:center; padding:14px 16px;
+      border-radius:14px; background: var(--wa); color:#fff;
+      text-decoration:none; font-weight:1100; margin-top:18px; transition:.15s ease;
+    }
+    .btnSolid:hover{background: var(--waHover)}
+    .note{
+      margin-top:22px; max-width:720px; margin-inline:auto; text-align:center;
+      padding:18px; border-radius:18px; border:1px solid var(--border);
+      background: var(--card); color:var(--muted); line-height:1.8;
+    }
+    .note b{color:var(--green)}
+
+    /* FAQ */
+    .faq{max-width:860px;margin:0 auto}
+    .faqItem{border:1px solid var(--border); border-radius:14px; background: var(--card); overflow:hidden; margin-bottom:14px}
+    .faqQ{
+      width:100%; text-align:right; padding:18px;
+      background: transparent; border:0; color:#fff;
+      font-size:16px; font-weight:1000; cursor:pointer;
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+    }
+    .faqQ span{flex:1}
+    .faqQ .plus{
+      width:28px;height:28px; border-radius:10px;
+      background: rgba(13,76,59,.20);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--green); transition:.15s ease; flex:0 0 28px;
+      transform: rotate(0deg);
+      font-weight:1100;
+    }
+    .faqA{max-height:0; overflow:hidden; transition:max-height .2s ease}
+    .faqA .inner{padding:0 18px 18px; color:var(--muted); line-height:1.95}
+    .faqItem.open .faqA{max-height:260px}
+    .faqItem.open .plus{transform: rotate(45deg)}
+
+    /* CTA Box */
+    .ctaBox{
+      max-width:980px; margin:0 auto; text-align:center;
+      padding:56px 22px; border-radius:26px;
+      border:1px solid rgba(13,76,59,.30);
+      background: linear-gradient(135deg, rgba(13,76,59,.40), rgba(13,76,59,.10));
+      box-shadow: var(--shadow);
+    }
+    .ctaBox h2{margin:0 0 12px;font-size:clamp(24px,3vw,34px);font-weight:1100}
+    .ctaBox p{margin:0 auto 26px;max-width:640px;color:var(--muted);line-height:1.85}
+
+    footer{padding:34px 0;border-top:1px solid var(--border);color:#6B7280;text-align:center;font-size:13px}
+
+    /* Floating WA */
+    .floatWA{
+      position:fixed; left:18px; bottom:18px;
+      width:64px;height:64px; border-radius:999px; background: var(--wa);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 16px 40px rgba(37,211,102,.25);
+      text-decoration:none; z-index:50; transition:.15s ease;
+    }
+    .floatWA:hover{background: var(--waHover); transform: translateY(-1px)}
+    .floatWA svg{width:30px;height:30px; fill:#fff}
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="blob"></div>
+    <div class="container">
+      <div class="chip">🌙 عروض رمضان الخاصة</div>
+
+      <h1 class="h1">
+        نوصّل إعلانك لعملاء مهتمين<br />
+        <span class="green">في منطقتك خلال رمضان</span>
+      </h1>
+
+      <p class="subtitle">
+        حملات محلية + محتوى إعلاني مكتوب وجاهز للتنفيذ — وإدارة وتحسين أسبوعي بدل ما تتعب.
+      </p>
+
+      <a class="cta" id="wa-hero" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        ابدأ حملة رمضان الآن
+      </a>
+
+      <div class="miniStats">
+        <div class="pill">✅ إطلاق من حسابك الإعلاني</div>
+        <div class="pill">✅ تحسين أسبوعي</div>
+        <div class="pill">✅ تقارير واضحة</div>
+      </div>
+    </div>
+
+    <div class="chev" id="chev" title="انزل لتفاصيل الخدمة">⌄</div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="sectionAlt" id="services">
+    <div class="container">
+      <div class="sectionTitle">
+        <h2>ماذا نقدم لك؟</h2>
+        <p>خدمات متكاملة لإطلاق حملتك الإعلانية المحلية خلال رمضان.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card col-3">
+          <div class="iconBox">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+              <path d="M12 12l9-3-9-3-9 3 9 3z"/><path d="M3 12l9 3 9-3"/><path d="M3 12v6l9 3 9-3v-6"/>
+            </svg>
+          </div>
+          <h3>استراتيجية استهداف محلي</h3>
+          <p>نحدد جمهورك المثالي في نطاقك الجغرافي عشان الإعلان يوصل للي يشتري.</p>
+        </div>
+
+        <div class="card col-3">
+          <div class="iconBox">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>
+            </svg>
+          </div>
+          <h3>كتابة المحتوى الإعلاني</h3>
+          <p>نكتب لك نصوص مقنعة (Hooks + CTA) جاهزة للنشر.</p>
+        </div>
+
+        <div class="card col-3">
+          <div class="iconBox">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+              <path d="M12 15l2 2 4-4"/><path d="M19.4 15a7.99 7.99 0 0 0 .1-1 8 8 0 1 0-8 8 7.99 7.99 0 0 0 1-.1"/>
+              <path d="M12 3v2"/><path d="M3 12h2"/><path d="M12 19v2"/><path d="M19 12h2"/>
+            </svg>
+          </div>
+          <h3>إدارة الحملة من حسابك</h3>
+          <p>نطلق ونُدير الحملة من حسابك الإعلاني مباشرة. الشفافية كاملة.</p>
+        </div>
+
+        <div class="card col-3">
+          <div class="iconBox">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+              <path d="M3 3v18h18"/><path d="M7 14l3-3 4 4 6-6"/>
+            </svg>
+          </div>
+          <h3>متابعة وتحسين أسبوعي</h3>
+          <p>نراجع الأداء، نحسّن الاستهداف والإعلانات ونقلل الهدر أسبوعيًا.</p>
+        </div>
+      </div>
+
+      <div class="how">
+        <h4>كيف نشتغل؟</h4>
+        <ul>
+          <li>✓ <b>المحتوى الإعلاني:</b> علينا (نصوص + أفكار)</li>
+          <li>✓ <b>إطلاق الحملة:</b> من حسابك الإعلاني</li>
+          <li>✓ <b>المتابعة:</b> تحسين أسبوعي وتقرير واضح</li>
+          <li class="muted">• أنت فقط تدفع ميزانية الإعلانات لمنصة الإعلان</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="container">
+      <div class="resultsHeader">
+        <div class="left">
+          <h2>نتائج حملات سابقة</h2>
+        </div>
+        <div class="trustBadges">
+          <div class="badge">✅ أرقام واضحة</div>
+          <div class="badge">✅ تحسين أسبوعي</div>
+          <div class="badge">✅ من حساب العميل</div>
+        </div>
+      </div>
+
+     <div class="card col-6 resultCard">
+  <div class="resultTitle">
+    <h3>حملة ميتا — متجر إلكتروني</h3>
+    <div class="label">Meta Ads</div>
+  </div>
+
+  <!-- الأرقام الأساسية -->
+  <div class="kpis">
+    <div class="kpi">
+      <div class="name">الوصول (Reach)</div>
+      <div class="val">351,745</div>
+    </div>
+
+    <div class="kpi">
+      <div class="name">الصرف الإعلاني</div>
+      <div class="val">10,565 ر.س</div>
+    </div>
+
+    <div class="kpi">
+      <div class="name">العائد من الحملة</div>
+      <div class="val green">≈ 52,720 ر.س</div>
+    </div>
+  </div>
+
+  <!-- الربح و ROAS -->
+  <div class="kpis" style="margin-top:12px">
+    <div class="kpi">
+      <div class="name">الربح التقريبي</div>
+      <div class="val green">≈ 42,155 ر.س</div>
+    </div>
+
+    <div class="kpi">
+      <div class="name">ROAS</div>
+      <div class="val green">4.99x</div>
+    </div>
+  </div>
+
+  <!-- الصورة تظهر مباشرة -->
+  <div class="proof" style="margin-top:20px;">
+    <b>نتيجة مباشرة من مدير إعلانات ميتا:</b>
+
+    <img src="https://i.postimg.cc/qRgyQHf6/lqtt-shasht-2026-02-16-160023.png"
+         alt="Meta Ads Results"
+         style="width:100%;margin-top:15px;border-radius:18px;
+                border:1px solid rgba(255,255,255,.1);
+                box-shadow:0 20px 50px rgba(0,0,0,.35)">
+  </div>
+</div>
+
+
+        <!-- Result 2 -->
+       <div class="card col-6 resultCard">
+  <div class="resultTitle">
+    <h3>حملة سناب — زيارات صفحة هبوط</h3>
+    <div class="label">Snapchat Ads</div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi">
+      <div class="name">الصرف الإعلاني</div>
+      <div class="val">46.06$</div>
+    </div>
+
+    <div class="kpi">
+      <div class="name">مشاهدات الصفحة</div>
+      <div class="val green">306</div>
+    </div>
+
+    <div class="kpi">
+      <div class="name">التكلفة لكل زيارة</div>
+      <div class="val">0.15$</div>
+    </div>
+  </div>
+
+  <div class="kpis" style="margin-top:12px">
+    <div class="kpi">
+      <div class="name">مرات الظهور</div>
+      <div class="val">9,117</div>
+    </div>
+
+    <div class="kpi">
+      <div class="name">CPC</div>
+      <div class="val">0.13$</div>
+    </div>
+
+    <div class="kpi">
+      <div class="name">CPM</div>
+      <div class="val">5.05$</div>
+    </div>
+  </div>
+
+  <div class="proof" style="margin-top:20px;">
+    <b>نتيجة مباشرة من مدير إعلانات سناب:</b>
+
+    <img src="https://i.postimg.cc/MpTP1r6p/lqtt-shasht-2026-02-16-163402.png"
+         alt="Snap Ads Result"
+         style="width:100%;margin-top:15px;border-radius:18px;
+                border:1px solid rgba(255,255,255,.1);
+                box-shadow:0 20px 50px rgba(0,0,0,.35)">
+  </div>
+</div>
+
+
+        <!-- Result 4 (Testimonials placeholder) -->
+        <div class="card col-6 resultCard">
+          <div class="resultTitle">
+            <h3>تعليقات عملاء</h3>
+            <div class="label">Social Proof</div>
+          </div>
+       <section style="padding:100px 0;background:linear-gradient(180deg,#0A0A0A,#0D1210);">
+  <div class="container">
+
+    <div class="sectionTitle">
+      <h2>قصص نجاح حقيقية</h2>
+      <p>عملاء اشتغلنا معهم وحققوا نتائج واضحة</p>
+    </div>
+
+    <div class="grid">
+
+      <!-- تقييم 1 -->
+      <div class="card col-4" style="position:relative;overflow:hidden;">
+        <div style="font-weight:900;font-size:16px;margin-bottom:6px;">
+          عبدالله — متجر عناية
+        </div>
+
+        <div style="color:#4ADE80;font-weight:800;margin-bottom:12px;">
+          ROAS 4.9x خلال أول شهر
+        </div>
+
+        <p style="line-height:1.9;color:#D1D5DB;font-size:15px;">
+          "كنت أصرف بدون نتيجة واضحة.
+          بعد ضبط الاستهداف وإعادة الهيكلة،
+          المبيعات تضاعفت تقريبًا.
+          أهم شيء الشفافية في الأرقام."
+        </p>
+
+        <div style="margin-top:18px;color:#9AA3AD;font-size:13px;">
+          ✔️ ميتا — حملات تحويل
+        </div>
+      </div>
+
+
+      <!-- تقييم 2 -->
+      <div class="card col-4" style="position:relative;overflow:hidden;">
+        <div style="font-weight:900;font-size:16px;margin-bottom:6px;">
+          أبو فهد — نشاط محلي
+        </div>
+
+        <div style="color:#4ADE80;font-weight:800;margin-bottom:12px;">
+          306 زيارة صفحة بـ 46$
+        </div>
+
+        <p style="line-height:1.9;color:#D1D5DB;font-size:15px;">
+          "أول مرة أحس إن الإعلان جالس يجيب ناس فعلًا.
+          تكلفة الزيارة كانت منخفضة،
+          وبدأنا نستقبل استفسارات يوميًا."
+        </p>
+
+        <div style="margin-top:18px;color:#9AA3AD;font-size:13px;">
+          ✔️ سناب — Traffic
+        </div>
+      </div>
+
+
+      <!-- تقييم 3 -->
+      <div class="card col-4" style="position:relative;overflow:hidden;">
+        <div style="font-weight:900;font-size:16px;margin-bottom:6px;">
+          محمد — متجر إلكتروني
+        </div>
+
+        <div style="color:#4ADE80;font-weight:800;margin-bottom:12px;">
+          +42 ألف ربح تقريبي
+        </div>
+
+        <p style="line-height:1.9;color:#D1D5DB;font-size:15px;">
+          "الفرق كان في التحسين الأسبوعي.
+          مو إطلاق حملة وخلاص،
+          فيه متابعة فعلية وتعديل مستمر."
+        </p>
+
+        <div style="margin-top:18px;color:#9AA3AD;font-size:13px;">
+          ✔️ إدارة كاملة للحملات
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  </section>
+
+  <!-- PRICING -->
+  <section class="sectionAlt" id="pricing">
+    <div class="container">
+      <div class="sectionTitle">
+        <h2>الباقات والأسعار</h2>
+        <p>اختر الباقة المناسبة لنشاطك. (الميزانية الإعلانية منفصلة)</p>
+      </div>
+
+      <div class="grid" style="max-width:920px;margin:0 auto">
+        <div class="card col-6 priceCard">
+          <h3 style="margin:0 0 6px;font-size:22px;font-weight:1100">باقة البداية</h3>
+          <div class="price">
+            <div class="num">١٥٠٠</div>
+            <div class="unit">ريال</div>
+          </div>
+
+          <ul class="features">
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span>حملة واحدة</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span>نصين إعلانيين</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span>تحسين أساسي</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span>مدة 30 يوم</li>
+          </ul>
+
+          <a class="btnOutline" id="wa-basic" target="_blank" rel="noopener noreferrer">اطلب الآن</a>
+        </div>
+
+        <div class="card col-6 priceCard" style="border-color:rgba(13,76,59,.50); background: linear-gradient(to bottom, rgba(13,76,59,.30), var(--card));">
+          <div class="tag">الأكثر طلباً</div>
+
+          <h3 style="margin:0 0 6px;font-size:22px;font-weight:1100">باقة النمو</h3>
+          <div class="price">
+            <div class="num">٢٥٠٠</div>
+            <div class="unit">ريال</div>
+          </div>
+
+          <ul class="features">
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span>حملتين</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span>4–6 نصوص إعلانية</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span>تحسين أسبوعي</li>
+            <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span>مدة 30 يوم</li>
+          </ul>
+
+          <a class="btnSolid" id="wa-growth" target="_blank" rel="noopener noreferrer">اطلب الآن</a>
+        </div>
+      </div>
+
+      <div class="note">
+        <b>ملاحظة مهمة:</b> ميزانية الإعلانات تُدفع مباشرة من صاحب النشاط التجاري لمنصة الإعلان.
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="sectionTitle">
+        <h2>الأسئلة الشائعة</h2>
+        <p>أجوبة مختصرة وواضحة عشان العميل يقرر بسرعة.</p>
+      </div>
+
+      <div class="faq">
+        <div class="faqItem">
+          <button class="faqQ" type="button">
+            <span>هل تضمنون تحقيق مبيعات؟</span><div class="plus">+</div>
+          </button>
+          <div class="faqA"><div class="inner">
+            ما نضمن رقم مبيعات محدد لأن النتائج تعتمد على السعر والجودة وخدمة العملاء. نضمن وصول الإعلان لجمهور مهتم وتحسين الأداء أسبوعيًا.
+          </div></div>
+        </div>
+
+        <div class="faqItem">
+          <button class="faqQ" type="button">
+            <span>كم الميزانية الإعلانية المطلوبة؟</span><div class="plus">+</div>
+          </button>
+          <div class="faqA"><div class="inner">
+            كبداية: 50–100 ريال يوميًا تعطي بيانات كافية ونقدر نحسن عليها. الميزانية تُدفع من حساب العميل مباشرة.
+          </div></div>
+        </div>
+
+        <div class="faqItem">
+          <button class="faqQ" type="button">
+            <span>من يدفع تكلفة الإعلانات؟</span><div class="plus">+</div>
+          </button>
+          <div class="faqA"><div class="inner">
+            صاحب النشاط يدفع الميزانية لمنصة الإعلان من حسابه. نحن مسؤولين عن الاستراتيجية والمحتوى والتحسين.
+          </div></div>
+        </div>
+
+        <div class="faqItem">
+          <button class="faqQ" type="button">
+            <span>كم المدة المطلوبة لرؤية النتائج؟</span><div class="plus">+</div>
+          </button>
+          <div class="faqA"><div class="inner">
+            مؤشرات أولية خلال الأسبوع الأول، لكن الأفضل 30 يوم لتقييم دقيق وتحسين ثابت.
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="container">
+      <div class="ctaBox">
+        <h2>جاهز لإطلاق حملتك الرمضانية؟</h2>
+        <p>تواصل واتساب الآن وخذ استشارة سريعة: وش أفضل منصة لك + كم ميزانية تبدأ فيها + وش المحتوى المناسب.</p>
+        <a class="cta" id="wa-cta" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          ابدأ حملة رمضان الآن
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>جميع الحقوق محفوظة © ٢٠٢٦</footer>
+
+  <!-- Floating WhatsApp -->
+  <a class="floatWA" id="wa-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    // WhatsApp
+    const whatsappNumber = "966553102866";
+    const message = encodeURIComponent("مرحباً، أرغب في الاستفسار عن حملات رمضان الإعلانية");
+    const wa = `https://wa.me/${whatsappNumber}?text=${message}`;
+    ["wa-hero","wa-basic","wa-growth","wa-cta","wa-float"].forEach(id=>{
+      const el = document.getElementById(id);
+      if(el) el.href = wa;
+    });
+
+    // FAQ accordion (single open)
+    document.querySelectorAll(".faqItem").forEach(item=>{
+      const btn = item.querySelector(".faqQ");
+      btn.addEventListener("click", ()=>{
+        const isOpen = item.classList.contains("open");
+        document.querySelectorAll(".faqItem.open").forEach(x=>x.classList.remove("open"));
+        if(!isOpen) item.classList.add("open");
+      });
+    });
+
+    // Scroll chevron
+    const chev = document.getElementById("chev");
+    if(chev){
+      chev.addEventListener("click", ()=>{
+        document.getElementById("services").scrollIntoView({behavior:"smooth"});
+      });
+    }
+  </script>
+
+</body>
+</html>
